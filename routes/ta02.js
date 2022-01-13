@@ -5,7 +5,7 @@ const req = require('express/lib/request');
 const router = express.Router();
 
 const array = ['Sean', 'Steven', 'Pratt'];
-let errorMessage = 'No errors here';
+let errorMessage = '';
 
 router.post('/addUser', (req, res, next) => {
 const addUser = req.body.addUser;
@@ -34,20 +34,6 @@ router.post('/removeUser', (req, res, next) => {
   }
   res.redirect('/ta02/');
 });
-
-
-router.get('/', (req, res, next) => {
-  res.render('pages/ta02', {
-    title: 'Team Activity 02',
-    users: array,
-    errorMessage: errorMessage,
-    path: '/ta02', // For pug, EJS
-    // activeTA03: true, // For HBS
-    // contentCSS: true, // For HBS
-  });
-});
-
-module.exports = router;
 
 
 router.get('/', (req, res, next) => {
